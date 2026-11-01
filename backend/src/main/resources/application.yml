@@ -44,7 +44,8 @@ spring:
       max-request-size: 11MB
 
 server:
-  port: ${SERVER_PORT:8080}
+  # Render injects PORT (default 10000); SERVER_PORT still wins for Compose/local use.
+  port: ${SERVER_PORT:${PORT:8080}}
   error:
     include-message: never
     include-stacktrace: never
